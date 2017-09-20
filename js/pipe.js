@@ -14,7 +14,11 @@ function Pipe() {
 		rect(this.x, (height - this.bottom), this.width, this.bottom); // bottom pipe
 	}
 
-	this.update = function() {
+	this.update = function() { 
 		this.x -= this.speed;
+	}
+
+	this.disappear = function() { 
+		return this.x < -this.width;
 	}
 }

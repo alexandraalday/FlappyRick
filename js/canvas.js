@@ -19,9 +19,13 @@ function draw() {
 	if (frameCount % 100 == 0){ // every x frames add a new set of pipes
 		pipes.push(new Pipe());
 	}
-	for (let i = 0; i < pipes.length; i++){
+	for (let i = pipes.length-1; i >= 0; i--){
 		pipes[i].show();
 		pipes[i].update();
+
+		if (pipes[i].disappear()){ // when the pipe disappears, remove it
+			pipes.splice(i, 1);
+		}
 	}
 }
 
