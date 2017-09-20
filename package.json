@@ -1,0 +1,23 @@
+{
+  "name": "flappyrick",
+  "version": "1.0.0",
+  "description": "Rick and Morty take on Flappy Bird",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandraalday/FlappyRick.git"
+  },
+  "author": "Alexandra Alday",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexandraalday/FlappyRick/issues"
+  },
+  "homepage": "https://github.com/alexandraalday/FlappyRick#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "socket.io": "^2.0.3"
+  }
+}
