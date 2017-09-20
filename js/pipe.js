@@ -1,8 +1,10 @@
 console.log('i am a pipe')
 
 function Pipe() {
-	this.top = random(height/2);
-	this.bottom = random (height/2);
+	let spacing = random(50, height / 3); //get random amount of space between the pipes
+	let center = random(spacing, height - spacing); // then have that random spacing centered on the y axis randomly
+	this.top = center - spacing / 2;
+	this.bottom = height - (center + spacing / 2);
 	this.x = width; // always start at edge of canvas
 	this.width = 40;
 	this.speed = 2;
