@@ -5,9 +5,9 @@ let pipes = [];
 
 
 function setup() {
-	createCanvas(400, 600);
+	createCanvas(800, 600);
 	rick = new Rick();
-	pipes.push(new Pipe()); // keep creating new pipes for rick to avoid
+	pipes.push(new Pipe()); // create initial pipe
 }
 
 function draw() {
@@ -15,6 +15,10 @@ function draw() {
 	rick.update(); // falling action
 	rick.show(); // hello rick!
 
+	// infinite pipes
+	if (frameCount % 100 == 0){ // every x frames add a new set of pipes
+		pipes.push(new Pipe());
+	}
 	for (let i = 0; i < pipes.length; i++){
 		pipes[i].show();
 		pipes[i].update();
