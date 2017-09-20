@@ -10,5 +10,6 @@ function setup() {
 
 function draw() {
 	background(0);
-	rick.show();
+	rick.update(); // falling action
+	rick.show(); // hello rick!
 }
