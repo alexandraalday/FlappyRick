@@ -13,3 +13,14 @@ function draw() {
 	rick.update(); // falling action
 	rick.show(); // hello rick!
 }
+
+function keyPressed() {
+	if (key == ' '){
+		console.log("SPACE")
+		rick.up();
+	}
+	if (keyCode == 38){
+		console.log("UP")
+		rick.up(); 
+	}
+}
