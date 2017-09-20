@@ -32,10 +32,11 @@ function Pipe() {
 	this.hits = function(rick) {
 		if (rick.y < this.top || rick.y > height - this.bottom){ // check if rick hits pipe on y axis
 			if (rick.x > this.x && rick.x < (this.x + this.width)){ // then check if rick hits pipe on x axis
-				this.hit = true;
+				this.hit = true; 
 				return true;
 			}
 		}
+		this.hit = false;
 		return false;
 	}
 }
