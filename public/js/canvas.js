@@ -2,17 +2,25 @@ console.log('i am the canvas');
 
 let rick;
 let pipes = [];
-let pause = false;
+let button;
+let pause = true;
+
 
 function setup() {
 	createCanvas(800, 600);
+	button = createButton("Play");
+	button.mousePressed(startGame);
 	rick = new Rick();
 	pipes.push(new Pipe()); // create initial pipe
 }
 
+function startGame() {
+	pause = false;
+}
+
 function draw() {
+	background(0);
 	if (!pause){
-		background(0);
 		rick.update(); // falling action
 		rick.show(); // hello rick!
 
