@@ -16,6 +16,7 @@ function preload() {
 	p3 = loadImage('assets/p3.png');
 	p4 = loadImage('assets/p4.png');
 	p5 = loadImage('assets/p5.png');
+	p6 = loadImage('assets/p6.png');
 }
 
 function setup() {
@@ -29,7 +30,7 @@ function setup() {
 	rick = new Rick();
 	pipes.push(new Pipe()); // create initial pipe
 	// slider = createSlider(0, 0.5, 0.1, 0.01); // setup a slider for volume controls
-	player = floor(random(5));
+	player = floor(random(6));
 }
 
 function startGame() {
@@ -58,7 +59,7 @@ function draw() {
 
 			if (pipes[i].hits(rick)) { // check for hits
 				console.log("OUCH!")
-				player = floor(random(5));
+				player = floor(random(6));
 			}
 
 			if (pipes[i].disappear()){ // when the pipe disappears, remove it
