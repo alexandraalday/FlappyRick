@@ -1,5 +1,7 @@
 let rick;
 let pipes = [];
+let uprock;
+let downrock;
 let button;
 let start;
 let pause = true;
@@ -9,6 +11,7 @@ let pause = true;
 // let noise = false;
 let player;
 
+
 function preload() {
 	bg = loadImage('assets/bg.png');
 	p1 = loadImage('assets/p1.png');
@@ -17,6 +20,8 @@ function preload() {
 	p4 = loadImage('assets/p4.png');
 	p5 = loadImage('assets/p5.png');
 	p6 = loadImage('assets/p6.png');
+	uprock = loadImage('assets/rockUp.png');
+	downrock = loadImage('assets/rockDown.png');
 }
 
 function setup() {

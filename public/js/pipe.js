@@ -15,8 +15,14 @@ function Pipe() {
 			if (this.hit){
 				fill(255, 0, 0);
 			}
-		rect(this.x, 0, this.width, this.top); //top pipe
-		rect(this.x, (height - this.bottom), this.width, this.bottom); // bottom pipe
+		// rect(this.x, 0, this.width, this.top); //top pipe
+		// rect(this.x, (height - this.bottom), this.width, this.bottom); // bottom pipe
+
+			if (!this.hit) {
+	            image(downrock, this.x - this.width, 0, 3 * this.width, this.top);
+	            image(uprock, this.x - this.width, height - this.bottom, 3 * this.width, this.bottom);
+			}
+
 	}
 
 	// move
