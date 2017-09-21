@@ -1,3 +1,5 @@
+// Based in part on Dan Shiffman's p5.js coding challenge #31 - Flappy Bird tutorial.
+
 let rick;
 let pipes = [];
 let uprock;

@@ -1,4 +1,4 @@
-<html>
+<html ng-app="flappyrick">
 <head>
   <meta charset="UTF-8">
   <title>Flappy Rick</title>
@@ -10,9 +10,12 @@
   <script language="javascript" type="text/javascript" src="js/canvas.js"></script>
   <script language="javascript" type="text/javascript" src="js/rick.js"></script>
   <script language="javascript" type="text/javascript" src="js/pipe.js"></script>
+  <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+  <script language="javascript" type="text/javascript" src="js/app.js"></script>
 </head>
 
-<body>
+<body ng-controller="mainController as ctrl">
+  {{ ctrl.message }} <br/>
 
 	<span>Press 'SPACEBAR' or 'UP ARROW' to fly</span><br/>
 	<span>Press 'P' to pause.</span><br/>

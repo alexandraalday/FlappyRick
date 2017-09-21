@@ -1,10 +1,7 @@
 //dependencies
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
-
-//server
-const server = 
+const port = process.env.PORT || 2000;
 
 
 //middleware
