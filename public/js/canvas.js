@@ -28,7 +28,7 @@ function preload() {
 function setup() {
 	// createCanvas(800, 600);
 	createCanvas(innerWidth, innerHeight -100);
-	start = createButton("Play");
+	start = createButton("Play").attribute("id", "playButton");
 	start.mousePressed(startGame);
 	// mic = new p5.AudioIn();
 	// voice = createButton("Move with Sound")
@@ -37,8 +37,9 @@ function setup() {
 	pipes.push(new Pipe()); // create initial pipe
 	// slider = createSlider(0, 0.5, 0.1, 0.01); // setup a slider for volume controls
 	player = floor(random(6));
-	sliderDiff = createSlider(0, 10, 4, 1); // slider for difficulty controls
-	sliderDiff.html("Difficulty")
+	createP('Difficulty:').addClass('text').style('display', 'inline');
+	sliderDiff = createSlider(0, 10, 4, 1).style('display', 'inline'); // slider for difficulty controls
+
 }
 
 function startGame() {

@@ -2,3 +2,10 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
+#playButton {
+	padding: 10px;
+	margin: 5px;
+	background:  #FFC300 ;
+	color:  #FF5733 ;
+}
