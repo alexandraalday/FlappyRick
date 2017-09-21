@@ -10,6 +10,7 @@ let pause = true;
 // let slider;
 // let noise = false;
 let player;
+let difficulty;
 
 
 function preload() {
@@ -36,6 +37,8 @@ function setup() {
 	pipes.push(new Pipe()); // create initial pipe
 	// slider = createSlider(0, 0.5, 0.1, 0.01); // setup a slider for volume controls
 	player = floor(random(6));
+	sliderDiff = createSlider(0, 10, 4, 1); // slider for difficulty controls
+	sliderDiff.html("Difficulty")
 }
 
 function startGame() {
@@ -53,9 +56,11 @@ function draw() {
 	if (!pause){
 		rick.update(); // falling action
 		rick.show(); // hello rick!
+		difficulty = sliderDiff.value();
 
 		// infinite pipes
-		if (frameCount % 200 == 0){ // every x frames add a new set of pipes
+		// if (frameCount % 200 == 0){ // every x frames add a new set of pipes
+		if (frameCount % floor(1360 / (4 * difficulty)) == 0){ 
 			pipes.push(new Pipe());
 		}
 		for (let i = pipes.length-1; i >= 0; i--){
