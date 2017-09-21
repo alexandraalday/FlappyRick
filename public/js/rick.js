@@ -8,8 +8,25 @@ function Rick() {
 	// hello rick!
 	this.show = function() {
 		noStroke();
-		fill(0, 255, 0);
-		ellipse(this.x, this.y, 32, 32);
+		// fill(0, 255, 0);
+		// ellipse(this.x, this.y, 32, 32);
+        switch (player) {
+            case 0:
+                lulz = p1;
+                break;
+            case 1:
+                lulz = p2;
+                break;
+            case 2:
+                lulz = p3;
+                break;
+            case 3:
+                lulz = p4;
+                break;
+            case 4:
+                lulz = p5;
+        }
+		image(lulz, this.x, this.y, 64, 64);
 	}
 
 

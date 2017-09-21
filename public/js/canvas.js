@@ -7,9 +7,15 @@ let mic;
 let voice;
 let slider;
 let noise = false;
+let player;
 
 function preload() {
-	bg = loadImage('/assets/birdworld.png');
+	bg = loadImage('assets/bg.png');
+	p1 = loadImage('assets/p1.png');
+	p2 = loadImage('assets/p2.png');
+	p3 = loadImage('assets/p3.png');
+	p4 = loadImage('assets/p4.png');
+	p5 = loadImage('assets/p5.png');
 }
 
 function setup() {
@@ -23,6 +29,7 @@ function setup() {
 	rick = new Rick();
 	pipes.push(new Pipe()); // create initial pipe
 	slider = createSlider(0, 0.5, 0.1, 0.01); // setup a slider for volume controls
+	player = floor(random(5));
 }
 
 function startGame() {
@@ -42,7 +49,7 @@ function draw() {
 		rick.show(); // hello rick!
 
 		// infinite pipes
-		if (frameCount % 150 == 0){ // every x frames add a new set of pipes
+		if (frameCount % 200 == 0){ // every x frames add a new set of pipes
 			pipes.push(new Pipe());
 		}
 		for (let i = pipes.length-1; i >= 0; i--){
@@ -51,6 +58,7 @@ function draw() {
 
 			if (pipes[i].hits(rick)) { // check for hits
 				console.log("OUCH!")
+				player = floor(random(5));
 			}
 
 			if (pipes[i].disappear()){ // when the pipe disappears, remove it
