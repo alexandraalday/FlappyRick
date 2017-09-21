@@ -3,10 +3,10 @@ let pipes = [];
 let button;
 let start;
 let pause = true;
-let mic;
-let voice;
-let slider;
-let noise = false;
+// let mic;
+// let voice;
+// let slider;
+// let noise = false;
 let player;
 
 function preload() {
@@ -23,12 +23,12 @@ function setup() {
 	createCanvas(innerWidth, innerHeight -100);
 	start = createButton("Play");
 	start.mousePressed(startGame);
-	mic = new p5.AudioIn();
-	voice = createButton("Move with Sound")
-	voice.mousePressed(voiceMode);
+	// mic = new p5.AudioIn();
+	// voice = createButton("Move with Sound")
+	// voice.mousePressed(voiceMode);
 	rick = new Rick();
 	pipes.push(new Pipe()); // create initial pipe
-	slider = createSlider(0, 0.5, 0.1, 0.01); // setup a slider for volume controls
+	// slider = createSlider(0, 0.5, 0.1, 0.01); // setup a slider for volume controls
 	player = floor(random(5));
 }
 
@@ -42,7 +42,7 @@ function voiceMode() {
 
 function draw() {
 	background(bg);
-	let volume = mic.getLevel();
+	// let volume = mic.getLevel();
 
 	if (!pause){
 		rick.update(); // falling action
@@ -66,26 +66,27 @@ function draw() {
 			}
 		}
 	}	
+}
 
 	//show sound level and threshold
-	let thresholdTop = slider.value();
-	let thresholdBottom = 0.1
-	if (volume > thresholdTop && !noise){
-		noise = true;
-		rick.up();
-	}
-	if (volume < thresholdBottom) {
-		noise = false;
-	}
+// 	let thresholdTop = slider.value();
+// 	let thresholdBottom = 0.1
+// 	if (volume > thresholdTop && !noise){
+// 		noise = true;
+// 		rick.up();
+// 	}
+// 	if (volume < thresholdBottom) {
+// 		noise = false;
+// 	}
 
-	fill(0, 255, 0);
-	let y = map(volume, 0, 1, height, 0); 
-	rect(width-50, y, 50, height - y);
-	let threshy = map(thresholdTop, 0, 1, height, 0);
-	stroke(255, 0, 0);
-	strokeWeight(4);
-	line(width-50, threshy, width, threshy);
-}
+// 	fill(0, 255, 0);
+// 	let y = map(volume, 0, 1, height, 0); 
+// 	rect(width-50, y, 50, height - y);
+// 	let threshy = map(thresholdTop, 0, 1, height, 0);
+// 	stroke(255, 0, 0);
+// 	strokeWeight(4);
+// 	line(width-50, threshy, width, threshy);
+// }
 
 function keyPressed() {
 	if (key == ' ' && !pause){
