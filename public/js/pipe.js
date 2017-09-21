@@ -1,5 +1,3 @@
-console.log('i am a pipe')
-
 function Pipe() {
 	let spacing = random(50, height / 3); //get random amount of space between the pipes
 	let center = random(spacing, height - spacing); // then have that random spacing centered on the y axis randomly
@@ -12,6 +10,7 @@ function Pipe() {
 
 	// watch out for those pipes!
 	this.show = function() {
+		noStroke();
 		fill(0, 255, 0);
 			if (this.hit){
 				fill(255, 0, 0);

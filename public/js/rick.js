@@ -1,5 +1,3 @@
-console.log('i am rick')
-
 function Rick() {
 	this.y = height/2;
 	this.x = 64;
@@ -9,6 +7,7 @@ function Rick() {
 
 	// hello rick!
 	this.show = function() {
+		noStroke();
 		fill(0, 255, 0);
 		ellipse(this.x, this.y, 32, 32);
 	}
@@ -17,7 +16,6 @@ function Rick() {
 	// see rick fly
 	this.up = function() {
 		this.velocity += this.forcePush;
-		console.log(this.velocity);
 	}
 
 	// it's gravity, son
