@@ -1,10 +1,10 @@
 function Pipe() {
-	let spacing = random(50, height / 3); //get random amount of space between the pipes
+	let spacing = random(68, height / 3); //get random amount of space between the pipes
 	let center = random(spacing, height - spacing); // then have that random spacing centered on the y axis randomly
 	this.top = center - spacing / 2;
 	this.bottom = height - (center + spacing / 2);
 	this.x = width; // always start at edge of canvas
-	this.width = 40;
+	this.width = 60;
 	this.speed = 2;
 	this.hit = false;
 

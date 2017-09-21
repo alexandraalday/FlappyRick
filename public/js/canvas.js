@@ -36,9 +36,9 @@ function startGame() {
 	pause = false;
 }
 
-function voiceMode() {
-	mic.start();
-}
+// function voiceMode() {
+// 	mic.start();
+// }
 
 function draw() {
 	background(bg);

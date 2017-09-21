@@ -1,6 +1,6 @@
 function Rick() {
 	this.y = height/2;
-	this.x = 64;
+	this.x = 150;
 	this.gravity = 0.6; // force pushing rick down
 	this.velocity = 0; // causing gravity force to increase
 	this.forcePush = -15; // force pushing rick up
@@ -8,8 +8,6 @@ function Rick() {
 	// hello rick!
 	this.show = function() {
 		noStroke();
-		// fill(0, 255, 0);
-		// ellipse(this.x, this.y, 32, 32);
         switch (player) {
             case 0:
                 lulz = p1;
