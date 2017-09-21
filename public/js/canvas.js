@@ -8,10 +8,13 @@ let voice;
 let slider;
 let noise = false;
 
-
+function preload() {
+	bg = loadImage('/assets/birdworld.png');
+}
 
 function setup() {
-	createCanvas(800, 600);
+	// createCanvas(800, 600);
+	createCanvas(innerWidth, innerHeight -100);
 	start = createButton("Play");
 	start.mousePressed(startGame);
 	mic = new p5.AudioIn();
@@ -31,7 +34,7 @@ function voiceMode() {
 }
 
 function draw() {
-	background(0);
+	background(bg);
 	let volume = mic.getLevel();
 
 	if (!pause){
