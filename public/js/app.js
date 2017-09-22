@@ -14,27 +14,12 @@ const app = angular.module('flappyrick', []);
   		this.showProfile = false;
   		this.showUpdate = false;
 
-		// create new account
-		this.register = function(userReg){
-		    $http({
-		      method: 'POST',
-		      url: this.url + '/users',
-		      data: { user: {
-		        username: userReg.username,
-		        password: userReg.password
-		      }},
-		    }).then(function(response) {
-		      console.log(response);
-		      controller.login(userReg);
-		    })
-		  }
-
 		// login 
 		this.login = function(userPass) {
 	    	$http({
 		    	method: 'POST',
 		    	url: this.url + '/users/login',
-		    	data: { user: { username: userPass.username, password: userPass.password }},
+		    	data: { user: { username: userPass.username, password: userPass.password }}
 		    }).then(function(response) {
 		      	console.log(response);
 		     	this.user = response.data.user;
@@ -53,13 +38,23 @@ const app = angular.module('flappyrick', []);
 		  location.reload();
 		}
 
+		// create new account
+		this.register = function(userReg){
+		    $http({
+		      method: 'POST',
+		      url: this.url + '/users',
+		      data: { user: { username: userReg.username, password: userReg.password }},
+		    }).then(function(response) {
+		      console.log(response);
+		      controller.login(userReg);
+		    })
+		}
+
 		// update 
 		this.update = function(userUp) {
 	    	$http({
 		    	method: 'PUT',
-		    	headers: {
-        			Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-     			},
+		    	headers: { Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token')) },
 		    	url: this.url + '/users/' + this.user.id,
 		    	data: { user: { username: userUp.username, password: userUp.password }},
 		    }).then(function(response) {
@@ -75,9 +70,7 @@ const app = angular.module('flappyrick', []);
 		this.delete = function() {
 	    	$http({
 		    	method: 'DELETE',
-		    	headers: {
-        			Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-     			},
+		    	headers: { Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token')) },
 		    	url: this.url + '/users/' + this.user.id
 		    }).then(function(response) {
 		      	console.log(response);
