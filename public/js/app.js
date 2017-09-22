@@ -14,7 +14,7 @@ const app = angular.module('flappyrick', []);
   		this.showProfile = false;
   		this.showUpdate = false;
 
-		// create new user
+		// create new account
 		this.register = function(userReg){
 		    $http({
 		      method: 'POST',
@@ -29,7 +29,7 @@ const app = angular.module('flappyrick', []);
 		    })
 		  }
 
-		// user login 
+		// login 
 		this.login = function(userPass) {
 	    	$http({
 		    	method: 'POST',
@@ -46,14 +46,14 @@ const app = angular.module('flappyrick', []);
 
 	  	}
 
-	  	// user logout
+	  	// logout
 		this.logout = function() {
 		  localStorage.clear('token');
 		  this.loggedin = false;
 		  location.reload();
 		}
 
-		// user update 
+		// update 
 		this.update = function(userUp) {
 	    	$http({
 		    	method: 'PUT',
@@ -66,6 +66,22 @@ const app = angular.module('flappyrick', []);
 		      	console.log(response);
 		     	controller.login(userUp);
 
+    		}.bind(this));
+
+	  	}
+
+
+	  	// delete
+		this.delete = function() {
+	    	$http({
+		    	method: 'DELETE',
+		    	headers: {
+        			Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+     			},
+		    	url: this.url + '/users/' + this.user.id
+		    }).then(function(response) {
+		      	console.log(response);
+		      	controller.logout();
     		}.bind(this));
 
 	  	}

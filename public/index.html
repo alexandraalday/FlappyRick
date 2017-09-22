@@ -71,6 +71,7 @@
           <li ng-hide="ctrl.loggedin" ng-click="ctrl.goLogin()"><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.goUpdate()"><a href="#" data-toggle="modal" data-target="#update">Update Info</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.logout()"><a href="#">Logout</a></li>
+          <li ng-show="ctrl.loggedin" ng-click="ctrl.delete()"><a href="#">Delete Account</a></li>
           <li ng-hide="ctrl.loggedin" ng-click="ctrl.goRegister()"><a href="#" data-toggle="modal" data-target="#register">Register</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
