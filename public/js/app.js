@@ -4,7 +4,7 @@ const app = angular.module('flappyrick', []);
 		this.message = "wubba lubba dub dub";
 		let controller = this;
   		// server location
-  		this.url = 'http://localhost:3000';
+  		this.url = 'https://flappyrick-api.herokuapp.com/';
   		// users
 		this.user = {};
 		this.userPass = {};
