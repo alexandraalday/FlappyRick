@@ -35,12 +35,18 @@ function setup() {
 	// mic = new p5.AudioIn();
 	// voice = createButton("Move with Sound")
 	// voice.mousePressed(voiceMode);
-	rick = new Rick();
-	pipes.push(new Pipe()); // create initial pipe
 	// slider = createSlider(0, 0.5, 0.1, 0.01); // setup a slider for volume controls
+	
+	//player
+	rick = new Rick();
 	player = floor(random(6));
+
+	// obstacles
+	pipes.push(new Pipe()); // create initial pipe
+	
+	//difficulty slider
 	createP('Difficulty:').addClass('text').style('display', 'inline');
-	sliderDiff = createSlider(0, 10, 4, 1).style('display', 'inline'); // slider for difficulty controls
+	sliderDiff = createSlider(0, 10, 1, 1).style('display', 'inline'); // slider for difficulty controls
 
 }
 
@@ -61,6 +67,7 @@ function draw() {
 		rick.show(); // hello rick!
 		difficulty = sliderDiff.value();
 
+
 		// infinite pipes
 		// if (frameCount % 200 == 0){ // every x frames add a new set of pipes
 		if (frameCount % floor(1360 / (4 * difficulty)) == 0){ 
@@ -79,6 +86,18 @@ function draw() {
 				pipes.splice(i, 1);
 			}
 		}
+
+		// score board
+		fill(0,0,0);
+	  	let scoreboard = rect(20, 50, 120, 40);
+	  	fill(255);
+	  	textSize(14);
+		text("Distance:", 30, 70, 10);
+	  	// scoreboard.attribute("id", "scoreBoard");
+	  	let distance = frameCount/100;
+	  	fill(0, 255, 0);
+	  	textSize(14);
+		text(distance, 100, 70, 10);
 	}	
 }
 

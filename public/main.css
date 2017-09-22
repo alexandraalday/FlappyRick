@@ -6,6 +6,10 @@ body {
 #playButton {
 	padding: 10px;
 	margin: 5px;
-	background:  #FFC300 ;
-	color:  #FF5733 ;
+	background:  #FFC300;
+	color:  #FF5733;
+}
+
+#scoreBoard {
+	color:  #ffffff;
 }

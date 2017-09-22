@@ -1,7 +1,6 @@
 const app = angular.module('flappyrick', []);
 
 	app.controller('mainController', ['$http', function($http) { 
-		this.message = "wubba lubba dub dub";
 		let controller = this;
   		// server location
   		this.url = 'https://flappyrick-api.herokuapp.com';
@@ -22,7 +21,7 @@ const app = angular.module('flappyrick', []);
 		      data: { user: {
 		        username: userReg.username,
 		        password: userReg.password
-		      }},
+		      }}
 		    }).then(function(response) {
 		      console.log(response);
 		      controller.login(userReg);
@@ -34,7 +33,7 @@ const app = angular.module('flappyrick', []);
 	    	$http({
 		    	method: 'POST',
 		    	url: this.url + '/users/login',
-		    	data: { user: { username: userPass.username, password: userPass.password }},
+		    	data: { user: { username: userPass.username, password: userPass.password }}
 		    }).then(function(response) {
 		      	console.log(response);
 		     	this.user = response.data.user;
@@ -43,8 +42,7 @@ const app = angular.module('flappyrick', []);
       			this.showRegister = false;
       			this.loggedin = true;
     		}.bind(this));
-
-	  	}
+    	}
 
 	  	// logout
 		this.logout = function() {
