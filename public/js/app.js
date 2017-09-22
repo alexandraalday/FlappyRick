@@ -56,12 +56,16 @@ const app = angular.module('flappyrick', []);
 		// user update 
 		this.update = function(userUp) {
 	    	$http({
-		    	method: 'POST',
+		    	method: 'PUT',
+		    	headers: {
+        			Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+     			},
 		    	url: this.url + '/users/' + this.user.id,
 		    	data: { user: { username: userUp.username, password: userUp.password }},
 		    }).then(function(response) {
 		      	console.log(response);
-		     	this.user = response.data.user;
+		     	controller.login(userUp);
+
     		}.bind(this));
 
 	  	}
