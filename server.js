@@ -10,7 +10,4 @@ app.use(express.static('public'));
 
 
 //port
-app.listen(port, ()=>{
-  console.log('wubba lubba dub dub');
-  console.log('Server running on this port: ' + port);
-});
+app.listen(port, () => console.log('wubba lubba dub dub running on port: ', port));
