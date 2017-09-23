@@ -1,5 +1,5 @@
 function Pipe() {
-	let spacing = random(68, height / 3); //get random amount of space between the pipes
+	let spacing = random(75, height / 3); //get random amount of space between the pipes
 	let center = random(spacing, height - spacing); // then have that random spacing centered on the y axis randomly
 	this.top = center - spacing / 2;
 	this.bottom = height - (center + spacing / 2);
@@ -14,10 +14,8 @@ function Pipe() {
 		fill(0, 255, 0);
 			if (this.hit){
 				fill(255, 0, 0);
+				rick.lives--;
 			}
-		// rect(this.x, 0, this.width, this.top); //top pipe
-		// rect(this.x, (height - this.bottom), this.width, this.bottom); // bottom pipe
-
 			if (!this.hit) {
 	            image(downrock, this.x - this.width, 0, 3 * this.width, this.top);
 	            image(uprock, this.x - this.width, height - this.bottom, 3 * this.width, this.bottom);
@@ -30,7 +28,7 @@ function Pipe() {
 		this.x -= this.speed;
 	}
 
-	// girl bye
+	// girl, bye
 	this.disappear = function() { 
 		return this.x < -this.width;
 	}
@@ -38,7 +36,7 @@ function Pipe() {
 	// POW! right in the kisser. 
 	this.hits = function(rick) {
 		if (rick.y < this.top || rick.y > height - this.bottom){ // check if rick hits pipe on y axis
-			if (rick.x > this.x && rick.x < (this.x + this.width)){ // then check if rick hits pipe on x axis
+			if (rick.x > this.x && rick.x < (this.x + this.width -58)){ // then check if rick hits pipe on x axis
 				this.hit = true; 
 				return true;
 			}

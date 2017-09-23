@@ -4,6 +4,7 @@ function Rick() {
 	this.gravity = 0.6; // force pushing rick down
 	this.velocity = 0; // causing gravity force to increase
 	this.forcePush = -15; // force pushing rick up
+	this.lives = 5;
 
 	// hello rick!
 	this.show = function() {

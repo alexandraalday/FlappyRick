@@ -1,5 +1,6 @@
 // Based in part on Dan Shiffman's p5.js coding challenge #31 - Flappy Bird tutorial.
 
+let canvas;
 let rick;
 let pipes = [];
 let uprock;
@@ -25,13 +26,17 @@ function preload() {
 	p6 = loadImage('assets/p6.png');
 	uprock = loadImage('assets/rockUp.png');
 	downrock = loadImage('assets/rockDown.png');
+	life = loadImage('assets/life.png');
 }
 
 function setup() {
 	// createCanvas(800, 600);
-	createCanvas(innerWidth, innerHeight -100);
+	canvas = createCanvas(innerWidth, innerHeight -100);
+	canvas.class("canvas")
 	start = createButton("Play").attribute("id", "playButton");
 	start.mousePressed(startGame);
+	reset = createButton("Reset").attribute("id", "resetButton");
+	reset.mousePressed(resetGame);
 	// mic = new p5.AudioIn();
 	// voice = createButton("Move with Sound")
 	// voice.mousePressed(voiceMode);
@@ -54,22 +59,29 @@ function startGame() {
 	pause = false;
 }
 
+function resetGame() {
+ //add reset stuff here
+
+
+}
+
 // function voiceMode() {
 // 	mic.start();
 // }
 
 function draw() {
 	background(bg);
+
 	// let volume = mic.getLevel();
 
 	if (!pause){
 		rick.update(); // falling action
 		rick.show(); // hello rick!
 		difficulty = sliderDiff.value();
+		
 
 
 		// infinite pipes
-		// if (frameCount % 200 == 0){ // every x frames add a new set of pipes
 		if (frameCount % floor(1360 / (4 * difficulty)) == 0){ 
 			pipes.push(new Pipe());
 		}
@@ -94,12 +106,28 @@ function draw() {
 	  	textSize(14);
 		text("Distance:", 30, 70, 10);
 	  	// scoreboard.attribute("id", "scoreBoard");
-	  	let distance = frameCount/100;
-	  	fill(0, 255, 0);
-	  	textSize(14);
-		text(distance, 100, 70, 10);
-	}	
+		  	//score
+		  	let distance = frameCount/100;
+		  	fill(0, 255, 0);
+		  	textSize(14);
+			text(distance, 100, 70, 10);
+
+		// lives
+		showLives();
+	}
 }
+
+// lives display
+function showLives() {
+	for (let i = 0; i < rick.lives; i++){
+    		fill((i<rick.lives)?(color(0,255,0)):(color(255,0,0)));
+    		rect(10+30*i,20,20,20);
+    		// change to images later
+    		// image(life, 30, 20, 48, 48);
+    	}
+
+}
+		
 
 	//show sound level and threshold
 // 	let thresholdTop = slider.value();
@@ -132,6 +160,7 @@ function keyPressed() {
         pause = !pause;
         if (pause) {
  			// console.log('Skkrt skkrt')
+ 			//show pause menu eventually
         }
 	}
 }
