@@ -67,7 +67,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="ctrl.loggedin"><a>Welcome back, {{ctrl.user.username}}!</a></li>
-          <li ng-show="ctrl.loggedin" ng-click=""><a href="#">My Scores</a></li>
+          <li ng-show="ctrl.loggedin"><button type="button" data-toggle="modal" data-target="#sidebar-right" class="btn btn-default navbar-btn pull-left">My Profile</button></li>
           <li ng-hide="ctrl.loggedin" ng-click="ctrl.goLogin()"><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.goUpdate()"><a href="#" data-toggle="modal" data-target="#update">Update Info</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.logout()"><a href="#">Logout</a></li>
@@ -78,6 +78,8 @@
       </div>
     </div><!-- /.container-fluid -->
   </nav>
+
+
 
 
   <!--  login -->
@@ -95,7 +97,7 @@
               <div class="form-group">
                 <input class="form-control" type="password" ng-model="userPass.password" placeholder="password">
               </div>
-              <button type="submit" class="btn btn-danger">Login</button>
+              <button type="submit" class="btn btn-default">Login</button>
             </form>
           </div>
         </div>
@@ -118,7 +120,7 @@
             <div class="form-group">
               <input class="form-control" type="password" ng-model="userReg.password" placeholder="password">
             </div>
-            <button type="submit" class="btn btn-danger">Register</button>
+            <button type="submit" class="btn btn-default">Register</button>
           </form>
         </div>
       </div>
@@ -140,12 +142,62 @@
             <div class="form-group">
               <input class="form-control" type="password" ng-model="userUp.password" placeholder="password">
             </div>
-            <button type="submit" class="btn btn-danger">Update</button>
+            <button type="submit" class="btn btn-default">Update</button>
           </form>
         </div>
       </div>
     </div>
   </div>
+
+
+
+  <!-- Sidebar Right -->
+  <div class="modal fade right" id="sidebar-right" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">My Profile</h4>
+        </div>
+      <div class="modal-body">
+        <ul class="nav nav-pills nav-stacked text-center lead">
+          <li role="presentation" class="active"><a href="#home">Scores</a></li>
+          <li role="presentation" class="dropdown">
+           <a href="#" class="dropdown-toggle" id="myTabDrop1" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Stuff <span class="fa fa-fw fa-chevron-down"></span></a>
+            <ul class="dropdown-menu btn-block">
+              <li><a href="#one" role="tab">One</a></li>
+              <li><a href="#two" role="tab">Two</a></li>
+              <li><a href="#three" role="tab">Three</a></li>
+            </ul>
+          </li>
+          <li role="presentation"><a href="#four">Blah</a></li>
+         </ul>
+      <hr>
+      <div class="form-group hide">
+        <div class="input-group">
+          <input class="form-control" placeholder="Search">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button"><i class="fa fa-fw fa-search"></i></button>
+            </span>
+        </div>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" id="search-right" placeholder="Search">
+        <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+      </div>
+      <hr>
+      <div class="btn-group-vertical center-block">
+        <a class="btn btn-instagram btn-lg" href="#" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+        <a class="btn btn-twitter btn-lg" href="#" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+        <a class="btn btn-github btn-lg" href="#" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 
 
