@@ -8,6 +8,7 @@ function Pipe() {
 	this.speed = 2;
 	this.hit = false;
 
+
 	// watch out for those pipes!
 	this.show = function() {
 		noStroke();

@@ -3,9 +3,29 @@ body {
 	padding: 0;
 }
 
-.canvas {
-	margin-top: 10px;
+canvas {
+	margin-top: 40px;
+  	vertical-align: top;
+  	display:block;
 }
+
+.container {
+  	position: fixed;
+  	width: 100%;
+  	height: 100%;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
+#overlay {
+  font-size: 2em;
+}
+
+.text-white {
+  color: white;
+}
+
 
 #playButton {
 	padding: 10px;

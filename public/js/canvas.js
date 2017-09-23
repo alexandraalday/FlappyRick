@@ -7,13 +7,14 @@ let uprock;
 let downrock;
 let button;
 let start;
-let pause = true;
+let pause = false;
 // let mic;
 // let voice;
 // let slider;
 // let noise = false;
 let player;
 let difficulty;
+let distance;
 
 
 function preload() {
@@ -29,13 +30,12 @@ function preload() {
 }
 
 function setup() {
-	// createCanvas(800, 600);
 	canvas = createCanvas(innerWidth, innerHeight -100);
 	canvas.class("canvas")
-	start = createButton("Play").attribute("id", "playButton");
-	start.mousePressed(startGame);
-	reset = createButton("Reset").attribute("id", "resetButton");
-	reset.mousePressed(resetGame);
+	// start = createButton("Play").attribute("id", "playButton");
+	// start.mousePressed(startGame);
+	// reset = createButton("Reset").attribute("id", "resetButton");
+	// reset.mousePressed(resetGame);
 	// mic = new p5.AudioIn();
 	// voice = createButton("Move with Sound")
 	// voice.mousePressed(voiceMode);
@@ -52,16 +52,8 @@ function setup() {
 	createP('Difficulty:').addClass('text').style('display', 'inline');
 	sliderDiff = createSlider(0, 10, 1, 1).style('display', 'inline'); // slider for difficulty controls
 
-}
-
-function startGame() {
-	pause = false;
-}
-
-function resetGame() {
- //add reset stuff here
-
-
+	FSM = new FiniteStateMachine("INTRO");
+  	initializeStates(FSM);
 }
 
 // function voiceMode() {
@@ -70,57 +62,21 @@ function resetGame() {
 
 function draw() {
 	background(bg);
-
 	// let volume = mic.getLevel();
 
 	if (!pause){
-		rick.update(); // falling action
-		rick.show(); // hello rick!
 		difficulty = sliderDiff.value();
-		
-
-
-		// infinite pipes
-		if (frameCount % floor(1360 / (4 * difficulty)) == 0){ 
-			pipes.push(new Pipe());
-		}
-		for (let i = pipes.length-1; i >= 0; i--){
-			pipes[i].show();
-			pipes[i].update();
-
-			if (pipes[i].hits(rick)) { // check for hits
-				console.log("OUCH!")
-				player = floor(random(6));
-			}
-
-			if (pipes[i].disappear()){ // when the pipe disappears, remove it
-				pipes.splice(i, 1);
-			}
-		}
-
-		// score board
-		fill(0,0,0);
-	  	let scoreboard = rect(20, 50, 120, 40);
-	  	fill(255);
-	  	textSize(14);
-		text("Distance:", 30, 70, 10);
-	  	// scoreboard.attribute("id", "scoreBoard");
-		  	//score
-		  	let distance = frameCount/100;
-		  	fill(0, 255, 0);
-		  	textSize(14);
-			text(distance, 100, 70, 10);
-
-		// lives
-		showLives();
 	}
+
+	FSM.run();
 }
 
 // lives display
 function showLives() {
 	if (rick.lives == 0){
-		pause = true;
-		// add a game over state here
+		rick.score = distance;
+		console.log("SCORE:" + rick.score);
+		FSM.next()
 	} else {
 	for (let i = 0; i < rick.lives; i++){
     		fill((i<rick.lives)?(color(0,255,0)):(color(255,0,0)));
@@ -132,6 +88,12 @@ function showLives() {
 
 }
 		
+ function reset() {
+      pipes = [];
+      pipes.speed = 2;
+      rick.score = 0;
+      rick.lives = 5;
+  }
 
 	//show sound level and threshold
 // 	let thresholdTop = slider.value();
@@ -152,19 +114,3 @@ function showLives() {
 // 	strokeWeight(4);
 // 	line(width-50, threshy, width, threshy);
 // }
-
-function keyPressed() {
-	if (key == ' ' && !pause){
-		rick.up();
-	}
-	if (keyCode == 38 && !pause){
-		rick.up(); 
-	}
-	if (key == "p" || key == "P") {
-        pause = !pause;
-        if (pause) {
- 			// console.log('Skkrt skkrt')
- 			//show pause menu eventually
-        }
-	}
-}
