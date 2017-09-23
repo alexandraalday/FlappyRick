@@ -20,7 +20,6 @@ function Pipe() {
 	            image(downrock, this.x - this.width, 0, 3 * this.width, this.top);
 	            image(uprock, this.x - this.width, height - this.bottom, 3 * this.width, this.bottom);
 			}
-
 	}
 
 	// move
