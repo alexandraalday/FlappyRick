@@ -26,7 +26,6 @@ function preload() {
 	p6 = loadImage('assets/p6.png');
 	uprock = loadImage('assets/rockUp.png');
 	downrock = loadImage('assets/rockDown.png');
-	life = loadImage('assets/life.png');
 }
 
 function setup() {
@@ -119,12 +118,17 @@ function draw() {
 
 // lives display
 function showLives() {
+	if (rick.lives == 0){
+		pause = true;
+		// add a game over state here
+	} else {
 	for (let i = 0; i < rick.lives; i++){
     		fill((i<rick.lives)?(color(0,255,0)):(color(255,0,0)));
     		rect(10+30*i,20,20,20);
     		// change to images later
     		// image(life, 30, 20, 48, 48);
     	}
+    }
 
 }
 		
