@@ -11,12 +11,12 @@ function initializeStates(FSM) {
 
 	function introStateRun() {
 		if (keyIsPressed) {  // SPACEBAR
-		  // add instructions here? or with a modal? 
 		  FSM.next();
 		}
   	}
 
 	function gameStateInit() {
+		select('.container').hide();
 		select('#overlay').hide();
 	}
 
@@ -69,6 +69,7 @@ function initializeStates(FSM) {
 	}
 
 	function gameOverStateInit() {
+		select('.container').show();
 		let textbox = select('#overlay');
 		textbox.html("GAME OVER!<br />SCORE: " + rick.score);
 		textbox.show();

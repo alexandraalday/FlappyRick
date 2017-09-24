@@ -9,7 +9,14 @@ canvas {
   	display:block;
 }
 
+#navigation {
+	background-color: #12353E;
+	border: none;
+}
+
 .container {
+	margin: 0;
+	padding: 0;
   	position: fixed;
   	width: 100%;
   	height: 100%;
@@ -19,19 +26,25 @@ canvas {
 }
 
 #overlay {
-  font-size: 2em;
+	width: 100%;
+  	height: 100%;
+  	justify-content: center;
+	background-color: #12353E;
+  	font-size: 2em;
+  	color: white;
 }
 
-.text-white {
+#logo {
+	margin-top: 5%;
+}
+
+#rick {
+	height: 40%;
+	margin-left: -30%;
+}
+
+.intro-text {
   color: white;
-}
-
-
-#playButton {
-	padding: 10px;
-	margin: 5px;
-	background:  #FFC300;
-	color:  #FF5733;
 }
 
 #scoreBoard {

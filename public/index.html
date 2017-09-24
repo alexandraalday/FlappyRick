@@ -70,6 +70,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="ctrl.loggedin"><a>Welcome back, {{ctrl.user.username}}!</a></li>
           <li ng-show="ctrl.loggedin"><button type="button" data-toggle="modal" data-target="#sidebar-right" class="btn btn-default navbar-btn pull-left">My Profile</button></li>
+          <li ng-show="ctrl.loggedin"><button type="button" id="sendScore" ng-click="ctrl.addScore()">Submit Score</button></li>
           <li ng-hide="ctrl.loggedin" ng-click="ctrl.goLogin()"><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.goUpdate()"><a href="#" data-toggle="modal" data-target="#update">Update Info</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.logout()"><a href="#">Logout</a></li>
@@ -201,11 +202,15 @@
 
   <!-- start and instructions -->
   <div class="container">
-    <div id="overlay" class="text-white">
-        PRESS SPACE TO START GAME!
+    <div id="overlay" class="text-center">
+      <img id="logo" src="assets/logo.png">
+      <div class="intro-section">
+        <img id="rick" src="assets/rick.png">
+        <p class="intro-text">PRESS SPACEBAR TO START!</p>
+      </div>
     </div>
   </div>
 
-  
+
 </body>
 </html>

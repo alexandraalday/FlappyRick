@@ -121,4 +121,26 @@ const app = angular.module('flappyrick', []);
 		}
 
 
+		// add score
+		this.addScore = function() {
+			let score = document.getElementById('overlay');
+    		score.innerHTML = score.innerText || score.textContent;
+			let userDistance = parseFloat(score.innerHTML.split('SCORE: ')[1]).toFixed(2);
+			console.log("distance: " + userDistance);
+			console.log("difficulty: " + sliderDiff.value());
+			console.log("user_id: " + controller.user.id);
+			let userDifficulty = sliderDiff.value();
+	    	$http({
+		    	method: 'POST',
+		    	url: this.url + '/users/' + this.user.id + '/scores',
+		    	data: { score: { 
+		    		distance: userDistance,
+		    		difficulty: userDifficulty,
+		    		user_id: controller.user.id
+		    	}}
+		    }).then(response=>{
+		      	console.log(response);
+    		}).catch(err=> console.log(err))
+    	}
+
 	}]);

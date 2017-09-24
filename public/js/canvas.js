@@ -5,8 +5,6 @@ let rick;
 let pipes = [];
 let uprock;
 let downrock;
-let button;
-let start;
 let pause = false;
 // let mic;
 // let voice;
@@ -32,8 +30,6 @@ function preload() {
 function setup() {
 	canvas = createCanvas(innerWidth, innerHeight -100);
 	canvas.class("canvas")
-	// start = createButton("Play").attribute("id", "playButton");
-	// start.mousePressed(startGame);
 	// reset = createButton("Reset").attribute("id", "resetButton");
 	// reset.mousePressed(resetGame);
 	// mic = new p5.AudioIn();
