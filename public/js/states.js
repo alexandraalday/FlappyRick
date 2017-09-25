@@ -20,6 +20,7 @@ function initializeStates(FSM) {
 	function gameStateInit() {
 		select('.container').hide();
 		select('#overlay').hide();
+		theme.play();
 	}
 
 	function gameStateRun() {
@@ -34,6 +35,7 @@ function initializeStates(FSM) {
 
 		rick.update(); // falling action
 		rick.show(); // hello rick!
+
 
 		// infinite pipes
 		if (frameCount % floor(1360 / (4 * difficulty)) == 0){ 
@@ -75,6 +77,8 @@ function initializeStates(FSM) {
 		let textbox = select('#overlay');
 		textbox.html("GAME OVER!<br />SCORE: " + rick.score);
 		textbox.show();
+		theme.stop();
+		gameover.play();
 
 		//reset functions
 		reset();

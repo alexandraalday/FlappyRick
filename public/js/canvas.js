@@ -1,4 +1,8 @@
 // Based in part on Dan Shiffman's p5.js coding challenge #31 - Flappy Bird tutorial.
+// theme from Trap Music Now https://youtu.be/9szNGXja85M
+// sounds from www.sounds-resource. com
+// images from www.spriters-resource.com
+
 
 let canvas;
 let rick;
@@ -13,6 +17,8 @@ let pause = false;
 let player;
 let difficulty;
 let distance;
+let theme;
+let gameover;
 
 
 function preload() {
@@ -25,11 +31,14 @@ function preload() {
 	p6 = loadImage('assets/p6.png');
 	uprock = loadImage('assets/rockUp.png');
 	downrock = loadImage('assets/rockDown.png');
+	theme = loadSound('assets/rick-morty-get-schwifty-trap.mp3');
+	gameover = loadSound('assets/damnLook.wav');
 }
 
 function setup() {
 	canvas = createCanvas(1119, innerHeight -100);
 	canvas.class("canvas")
+	
 	// reset = createButton("Reset").attribute("id", "resetButton");
 	// reset.mousePressed(resetGame);
 	// mic = new p5.AudioIn();
@@ -65,6 +74,7 @@ function draw() {
 	}
 
 	FSM.run();
+
 }
 
 // lives display
