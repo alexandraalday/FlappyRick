@@ -28,7 +28,7 @@ function preload() {
 }
 
 function setup() {
-	canvas = createCanvas(innerWidth, innerHeight -100);
+	canvas = createCanvas(1119, innerHeight -100);
 	canvas.class("canvas")
 	// reset = createButton("Reset").attribute("id", "resetButton");
 	// reset.mousePressed(resetGame);

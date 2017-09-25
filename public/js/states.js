@@ -11,7 +11,9 @@ function initializeStates(FSM) {
 
 	function introStateRun() {
 		if (keyIsPressed) {  // SPACEBAR
-		  FSM.next();
+		  if (keyCode === 13){
+		  	FSM.next();
+		  }
 		}
   	}
 
@@ -79,7 +81,7 @@ function initializeStates(FSM) {
 	}
 
 	function gameOverStateRun() {
-		if (keyIsDown(32)) {
+		if (keyIsDown(13)) {
 			FSM.next();
 		}
 	}

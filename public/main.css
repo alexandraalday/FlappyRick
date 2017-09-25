@@ -1,12 +1,13 @@
 body {
 	margin: 0;
 	padding: 0;
+	background-color: #12353E;
 }
 
 canvas {
 	margin-top: 40px;
   	vertical-align: top;
-  	display:block;
+  	display:inline-block;
 }
 
 #navigation {
@@ -18,7 +19,7 @@ canvas {
 	margin: 0;
 	padding: 0;
   	position: fixed;
-  	width: 100%;
+  	width: 1119px;
   	height: 100%;
   	display: flex;
   	align-items: center;
@@ -40,11 +41,17 @@ canvas {
 
 #rick {
 	height: 40%;
-	margin-left: -30%;
+	margin-left: -5%;
+	display: inline-block;
 }
 
 .intro-text {
   color: white;
+  display: inline-block;
+}
+
+#login {
+	display: inline-block;
 }
 
 #scoreBoard {
