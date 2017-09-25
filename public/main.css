@@ -42,12 +42,39 @@ canvas {
 #rick {
 	height: 40%;
 	margin-left: -5%;
+	margin-top: -10%;
 	display: inline-block;
 }
 
 .intro-text {
   color: white;
   display: inline-block;
+  margin-top: 50px;
+}
+
+.speech-bubble {
+	display: inline-block;
+	background: #24cfd8; 
+	border-radius: .4em; 
+	width: 260px;
+	padding: 60px 20px;
+	margin-left: 30px;
+	margin-top: 30px;
+	text-align: center;
+} 
+.speech-bubble::after { 
+	content: ''; 
+	position: absolute; 
+	left: 525px; 
+	top: 50%; 
+	width: 0; 
+	height: 0; 
+	border: 53px solid transparent; 
+	border-right-color: #24cfd8; 
+	border-left: 0; 
+	border-top: 0; 
+	margin-top: -26.5px; 
+	margin-left: -53px; 
 }
 
 #login {
@@ -128,3 +155,8 @@ canvas {
 	min-height:100vh;
 	border:0;
 }
+
+
+
+
+
