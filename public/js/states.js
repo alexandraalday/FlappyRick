@@ -21,6 +21,9 @@ function initializeStates(FSM) {
 		select('.container').hide();
 		select('#overlay').hide();
 		theme.play();
+		theme.setVolume(0.3);
+		textDiff.hide();
+		sliderDiff.show();
 	}
 
 	function gameStateRun() {

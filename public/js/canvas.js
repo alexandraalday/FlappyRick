@@ -38,6 +38,16 @@ function preload() {
 function setup() {
 	canvas = createCanvas(1119, innerHeight -100);
 	canvas.class("canvas")
+
+	//difficulty slider
+	textDiff = createP('Difficulty:').addClass('slider').style('display', 'inline');
+	textDiff.position(1000, 60)
+	textDiff.style('color', '#ffffff');
+	sliderDiff = createSlider(0, 10, 1, 1).style('display', 'inline'); // slider for difficulty controls
+	sliderDiff.position(1000, 80);
+	sliderDiff.style('max-width', '100px');
+	textDiff.hide();
+	sliderDiff.hide();
 	
 	// reset = createButton("Reset").attribute("id", "resetButton");
 	// reset.mousePressed(resetGame);
@@ -52,10 +62,8 @@ function setup() {
 
 	// obstacles
 	pipes.push(new Pipe()); // create initial pipe
-	
-	//difficulty slider
-	createP('Difficulty:').addClass('text').style('display', 'inline');
-	sliderDiff = createSlider(0, 10, 1, 1).style('display', 'inline'); // slider for difficulty controls
+
+
 
 	FSM = new FiniteStateMachine("INTRO");
   	initializeStates(FSM);
@@ -99,6 +107,8 @@ function showLives() {
       pipes.speed = 2;
       rick.score = 0;
       rick.lives = 5;
+      textDiff.hide();
+      sliderDiff.hide();
   }
 
 	//show sound level and threshold
