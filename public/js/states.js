@@ -81,7 +81,8 @@ function initializeStates(FSM) {
 	function gameOverStateInit() {
 		select('.container').show();
 		let textbox = select('#overlay');
-		textbox.html("GAME OVER!<br />SCORE: " + rick.score);
+		textbox.html("GAME OVER!<br />SCORE: " + rick.score + "<br/><div id='morty-says'><h2>Oh, snap! Press Enter to play again.</h2><h4>If you logged in, click 'Submit Score' to donate to the Citadel of Ricks redevelopment fund.</h4></div><img id='morty' src='assets/morty.png'>");
+		textbox.style("padding-top", "100px");
 		textbox.show();
 		theme.stop();
 		gameover.play();

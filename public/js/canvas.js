@@ -42,7 +42,8 @@ function preload() {
 
 function setup() {
 	canvas = createCanvas(1119, innerHeight -100);
-	canvas.class("canvas")
+	canvas.class("canvas");
+
 
 	//difficulty slider section
 	textDiff = createP('Difficulty:').addClass('slider').style('display', 'inline');
