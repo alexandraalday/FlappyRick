@@ -20,9 +20,9 @@ function initializeStates(FSM) {
 	function gameStateInit() {
 		select('.container').hide();
 		select('#overlay').hide();
-		theme.play();
+		theme.loop();
 		theme.setVolume(0.3);
-		textDiff.hide();
+		textDiff.show();
 		sliderDiff.show();
 	}
 
@@ -50,6 +50,7 @@ function initializeStates(FSM) {
 
 			if (pipes[i].hits(rick)) { // check for hits
 				console.log("OUCH!")
+				smack = floor(random(4));
 				player = floor(random(6));
 			}
 

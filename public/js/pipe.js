@@ -15,7 +15,26 @@ function Pipe() {
 		fill(0, 255, 0);
 			if (this.hit){
 				fill(255, 0, 0);
-				rick.lives--;
+        	switch (smack) {
+	            case 0:
+	                smack = rockhit1;
+	                break;
+	            case 1:
+	                smack = rockhit2;
+	                break;
+	            case 2:
+	                smack = rockhit3;
+	                break;
+	            case 3:
+	                smack = rockhit4;
+	        }
+			
+			rick.lives--;
+			console.log(smack);
+			smack.play()
+			smack.setVolume(0.7);
+
+
 			}
 			if (!this.hit) {
 	            image(downrock, this.x - this.width, 0, 3 * this.width, this.top);

@@ -13,6 +13,7 @@ canvas {
 #navigation {
 	background-color: #12353E;
 	border: none;
+	margin-right: 20%;
 }
 
 .container {
@@ -52,6 +53,27 @@ canvas {
   margin-top: 50px;
 }
 
+.flash { 
+	color: #66ccff;
+	-webkit-animation-name: flashanim; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: .5s; /* Chrome, Safari, Opera */
+    -webkit-animation-timing: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+     animation-name: flashanim;
+    animation-duration: .5s;
+    animation-timing: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes flashanim {
+    0% {	color: #66ccff;}   
+    100% {	color: #ffffff;}
+   }
+
+
+
 .speech-bubble {
 	display: inline-block;
 	background: #24cfd8; 
@@ -75,6 +97,10 @@ canvas {
 	border-top: 0; 
 	margin-top: -26.5px; 
 	margin-left: -53px; 
+}
+
+#intro-buttons {
+	margin-left: 15%;
 }
 
 #login {

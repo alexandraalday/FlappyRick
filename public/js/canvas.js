@@ -1,6 +1,6 @@
 // Based in part on Dan Shiffman's p5.js coding challenge #31 - Flappy Bird tutorial.
 // theme from Trap Music Now https://youtu.be/9szNGXja85M
-// sounds from www.sounds-resource. com
+// sounds from www.sounds-resource.com
 // images from www.spriters-resource.com
 
 
@@ -32,7 +32,12 @@ function preload() {
 	uprock = loadImage('assets/rockUp.png');
 	downrock = loadImage('assets/rockDown.png');
 	theme = loadSound('assets/rick-morty-get-schwifty-trap.mp3');
-	gameover = loadSound('assets/damnLook.wav');
+	gameover = loadSound('assets/damnLook.wav'); 
+	rockhit1 = loadSound('assets/rockhit1.wav');
+	rockhit2 = loadSound('assets/rockhit2.wav');
+	rockhit3 = loadSound('assets/rockhit3.wav');
+	rockhit4 = loadSound('assets/rockhit4.wav');
+
 }
 
 function setup() {
@@ -43,7 +48,7 @@ function setup() {
 	textDiff = createP('Difficulty:').addClass('slider').style('display', 'inline');
 	textDiff.position(1000, 60)
 	textDiff.style('color', '#ffffff');
-	sliderDiff = createSlider(0, 10, 1, 1).style('display', 'inline'); // slider for difficulty controls
+	sliderDiff = createSlider(0, 10, 2, 1).style('display', 'inline'); // slider for difficulty controls
 	sliderDiff.position(1000, 80);
 	sliderDiff.style('max-width', '100px');
 	textDiff.hide();
