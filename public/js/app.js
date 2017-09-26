@@ -12,6 +12,9 @@ const app = angular.module('flappyrick', []);
   		this.loggedin = false;
   		this.showProfile = false;
   		this.showUpdate = false;
+  		this.userScores = [];
+  		this.highScore;
+  		this.totalScore;
 
 		// create new account
 		this.register = function(userReg){
@@ -41,6 +44,7 @@ const app = angular.module('flappyrick', []);
 		     	this.showLogin = false;
       			this.showRegister = false;
       			this.loggedin = true;
+      			this.getScores(this.user);
     		}.bind(this));
     	}
 
@@ -140,7 +144,35 @@ const app = angular.module('flappyrick', []);
 		    	}}
 		    }).then(response=>{
 		      	console.log(response);
+		      	console.log(response.data.distance);
     		}).catch(err=> console.log(err))
     	}
+
+    	// show a list of all songs if user logged in
+		this.getScores = function(user) {
+		    $http({
+		      url: this.url + '/users/' + this.user.id,
+		      method: 'GET',
+		      headers: {
+		        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+		      }
+		    }).then(function(response) {
+		      controller.userScores = response.data.scores;
+		      let scores = [];
+		      for (let i = 0; i < controller.userScores.length; i++){
+		      	scores.push(parseFloat(controller.userScores[i].distance)).toFixed(2);
+		      }
+		      
+		      //total score
+		      controller.totalScore = scores.reduce(function(a, b) {
+    			return a + b;
+			  });
+
+			  // high score
+		      controller.highScore =  scores.reduce(function(a, b) {
+    			return Math.max(a, b);
+				});
+		    }.bind(this));
+		  }
 
 	}]);

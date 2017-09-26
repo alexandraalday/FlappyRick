@@ -71,9 +71,14 @@
               </div>
               <button type="submit" class="btn btn-default">Login</button>
         </form>
+
+        <!-- score reports -->
+        <h6 ng-show="ctrl.loggedin">high score: {{ ctrl.highScore }}</h6>
+        <h6 ng-show="ctrl.loggedin">total score: {{ ctrl.totalScore }}</h6>
         <!-- links -->
         <ul ng-show="ctrl.loggedin" class="nav nav-pills nav-stacked text-center lead">
           <li role="presentation" class="active" id="sendScore" ng-click="ctrl.addScore()"><a href="#home">Submit Score</a></li>
+            <!-- account settings -->
           <li role="presentation" class="dropdown">
            <a href="#" class="dropdown-toggle" id="myTabDrop1" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Account Settings <span class="fa fa-fw fa-chevron-down"></span></a>
             <ul class="dropdown-menu btn-block">
@@ -85,6 +90,25 @@
          </ul>
       <hr ng-show="ctrl.loggedin"> 
       <!-- some stuff here -->
+        <div>
+          <table ng-show="ctrl.loggedin" class="table table-hover">
+            <thead>
+              <tr>
+                <th>Distance</th>
+                <th>Difficulty</th>
+                <th>Added</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="score in ctrl.userScores | orderBy: '-created_at'">
+                <td>{{ score.distance }}</td>
+                <td>{{ score.difficulty }}</td>
+                <td>{{ score.created_at | date:'M/d/y hh:mm:ss' }}</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+      <!-- github link -->
       <div ng-show="ctrl.loggedin" class="btn-group-vertical center-block">
         <a class="btn btn-github btn-lg" href="https://github.com/alexandraalday" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </div>

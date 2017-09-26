@@ -10,15 +10,15 @@ let pipes = [];
 let uprock;
 let downrock;
 let pause = false;
-// let mic;
-// let voice;
-// let slider;
-// let noise = false;
 let player;
 let difficulty;
 let distance;
 let theme;
 let gameover;
+// let mic;
+// let voice;
+// let slider;
+// let noise = false;
 
 
 function preload() {
@@ -54,13 +54,6 @@ function setup() {
 	textDiff.hide();
 	sliderDiff.hide();
 	
-	// reset = createButton("Reset").attribute("id", "resetButton");
-	// reset.mousePressed(resetGame);
-	// mic = new p5.AudioIn();
-	// voice = createButton("Move with Sound")
-	// voice.mousePressed(voiceMode);
-	// slider = createSlider(0, 0.5, 0.1, 0.01); // setup a slider for volume controls
-	
 	//player
 	rick = new Rick();
 	player = floor(random(6));
@@ -68,7 +61,10 @@ function setup() {
 	// obstacles
 	pipes.push(new Pipe()); // create initial pipe
 
-
+	// mic = new p5.AudioIn();
+	// voice = createButton("Move with Sound")
+	// voice.mousePressed(voiceMode);
+	// slider = createSlider(0, 0.5, 0.1, 0.01); // setup a slider for volume controls
 
 	FSM = new FiniteStateMachine("INTRO");
   	initializeStates(FSM);
