@@ -44,11 +44,11 @@ function setup() {
 	canvas = createCanvas(1119, innerHeight -100);
 	canvas.class("canvas")
 
-	//difficulty slider
+	//difficulty slider section
 	textDiff = createP('Difficulty:').addClass('slider').style('display', 'inline');
 	textDiff.position(1000, 60)
 	textDiff.style('color', '#ffffff');
-	sliderDiff = createSlider(0, 10, 2, 1).style('display', 'inline'); // slider for difficulty controls
+	sliderDiff = createSlider(1, 10, 1, 1).style('display', 'inline'); // slider for difficulty controls
 	sliderDiff.position(1000, 80);
 	sliderDiff.style('max-width', '100px');
 	textDiff.hide();
@@ -77,13 +77,10 @@ function setup() {
 function draw() {
 	background(bg);
 	// let volume = mic.getLevel();
-
 	if (!pause){
 		difficulty = sliderDiff.value();
 	}
-
 	FSM.run();
-
 }
 
 // lives display
@@ -96,11 +93,8 @@ function showLives() {
 	for (let i = 0; i < rick.lives; i++){
     		fill((i<rick.lives)?(color(0,255,0)):(color(255,0,0)));
     		rect(10+30*i,20,20,20);
-    		// change to images later
-    		// image(life, 30, 20, 48, 48);
     	}
     }
-
 }
 		
  function reset() {
@@ -112,7 +106,8 @@ function showLives() {
       sliderDiff.hide();
   }
 
-	//show sound level and threshold
+	// show sound level and threshold
+
 // 	let thresholdTop = slider.value();
 // 	let thresholdBottom = 0.1
 // 	if (volume > thresholdTop && !noise){

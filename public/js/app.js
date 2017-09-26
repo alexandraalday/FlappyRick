@@ -72,7 +72,6 @@ const app = angular.module('flappyrick', []);
 
 	  	}
 
-
 	  	// delete
 		this.delete = function() {
 	    	$http({
@@ -85,10 +84,7 @@ const app = angular.module('flappyrick', []);
 		      	console.log(response);
 		      	controller.logout();
     		}.bind(this));
-
 	  	}
-
-
 
 		// display/hide user forms
 		this.goRegister = function(){
@@ -124,7 +120,6 @@ const app = angular.module('flappyrick', []);
 		    }
 		}
 
-
 		// add score
 		this.addScore = function() {
 			let score = document.getElementById('overlay');
@@ -144,11 +139,11 @@ const app = angular.module('flappyrick', []);
 		    	}}
 		    }).then(response=>{
 		      	console.log(response);
-		      	console.log(response.data.distance);
+		      	this.getScores(this.user);
     		}).catch(err=> console.log(err))
     	}
 
-    	// show a list of all songs if user logged in
+    	// get scores, high score, and total score for current user
 		this.getScores = function(user) {
 		    $http({
 		      url: this.url + '/users/' + this.user.id,

@@ -10,11 +10,9 @@ canvas {
   	display:inline-block;
 }
 
-#navigation {
-	background-color: #12353E;
-	border: none;
-	margin-right: 20%;
-}
+/*****************
+	home page  
+*****************/
 
 .container {
 	margin: 0;
@@ -48,9 +46,9 @@ canvas {
 }
 
 .intro-text {
-  color: white;
-  display: inline-block;
-  margin-top: 50px;
+  	color: white;
+  	display: inline-block;
+  	margin-top: 50px;
 }
 
 .flash { 
@@ -72,8 +70,6 @@ canvas {
     100% {	color: #ffffff;}
    }
 
-
-
 .speech-bubble {
 	display: inline-block;
 	background: #24cfd8; 
@@ -84,6 +80,7 @@ canvas {
 	margin-top: 30px;
 	text-align: center;
 } 
+
 .speech-bubble::after { 
 	content: ''; 
 	position: absolute; 
@@ -107,67 +104,40 @@ canvas {
 	display: inline-block;
 }
 
+
+/*****************
+	game canvas  
+*****************/
+
 #scoreBoard {
 	color:  #ffffff;
 }
 
-/* Social Buttons - Twitter, Facebook, Google Plus */
-.btn-twitter {
-	background: #00acee;
-	color: #fff
-}
-.btn-twitter:link, .btn-twitter:visited {
-	color: #fff
-}
-.btn-twitter:active, .btn-twitter:hover {
-	background: #0087bd;
-	color: #fff
-}
-
-.btn-instagram {
-	color:#fff;
-	background-color:#3f729b;
-	border-color:rgba(0,0,0,0.2);
-}
-.btn-instagram:focus,.btn-instagram.focus {
-	color:#fff;
-	background-color:#305777;
-	border-color:rgba(0,0,0,0.2);
-}
-.btn-instagram:hover {
-	color:#fff;
-	background-color:#305777;
-	border-color:rgba(0,0,0,0.2);
-}
+/*****************
+	sidebar menu 
+*****************/
 
 .btn-github {
 	color:#fff;
 	background-color:#444;
 	border-color:rgba(0,0,0,0.2);
 }
+
 .btn-github:focus,.btn-github.focus {
 	color:#fff;
 	background-color:#2b2b2b;
 	border-color:rgba(0,0,0,0.2);
 }
+
 .btn-github:hover {
 	color:#fff;
 	background-color:#2b2b2b;
 	border-color:rgba(0,0,0,0.2);
 }
 
-/* MODAL FADE LEFT RIGHT BOTTOM */
-.modal.fade:not(.in).left .modal-dialog {
-	-webkit-transform: translate3d(-25%, 0, 0);
-	transform: translate3d(-25%, 0, 0);
-}
 .modal.fade:not(.in).right .modal-dialog {
 	-webkit-transform: translate3d(25%, 0, 0);
 	transform: translate3d(25%, 0, 0);
-}
-.modal.fade:not(.in).bottom .modal-dialog {
-	-webkit-transform: translate3d(0, 25%, 0);
-	transform: translate3d(0, 25%, 0);
 }
 
 .modal.right .modal-dialog {

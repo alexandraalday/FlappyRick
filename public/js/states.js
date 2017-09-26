@@ -1,6 +1,6 @@
 function initializeStates(FSM) {
 
-	/* Initialize the game state machine */
+	// Initialize the game state machine 
 	var IntroState = new State("INTRO", "GAME", introStateRun);
 	var GameState = new State("GAME", "GAMEOVER", gameStateRun, gameStateInit);
 	var GameOverState = new State("GAMEOVER", "INTRO", gameOverStateRun, gameOverStateInit);
@@ -10,7 +10,7 @@ function initializeStates(FSM) {
 	FSM.addState(GameOverState);
 
 	function introStateRun() {
-		if (keyIsPressed) {  // SPACEBAR
+		if (keyIsPressed) {  // enter key
 		  if (keyCode === 13){
 		  	FSM.next();
 		  }
@@ -44,6 +44,7 @@ function initializeStates(FSM) {
 		if (frameCount % floor(1360 / (4 * difficulty)) == 0){ 
 			pipes.push(new Pipe());
 		}
+
 		for (let i = pipes.length-1; i >= 0; i--){
 			pipes[i].show();
 			pipes[i].update();
@@ -66,11 +67,12 @@ function initializeStates(FSM) {
 	  	textSize(14);
 		text("Distance:", 30, 70, 10);
 	  	// scoreboard.attribute("id", "scoreBoard");
-		  	//score
-		  	distance = frameCount/100;
-		  	fill(0, 255, 0);
-		  	textSize(14);
-			text(distance, 100, 70, 10);
+		  	
+	  	//score
+	  	distance = frameCount/100;
+	  	fill(0, 255, 0);
+	  	textSize(14);
+		text(distance, 100, 70, 10);
 
 		// lives
 		showLives();
