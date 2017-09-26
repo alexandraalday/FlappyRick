@@ -61,18 +61,18 @@ function initializeStates(FSM) {
 		}
 
 		// score board
-		fill(0,0,0);
-	  	let scoreboard = rect(20, 50, 120, 40);
+		fill(27,53,61);
+	  	let scoreboard = rect(20, 50, 180, 30);
 	  	fill(255);
-	  	textSize(14);
-		text("Distance:", 30, 70, 10);
+	  	textSize(20);
+		text("Distance:", 30, 70, 8);
 	  	// scoreboard.attribute("id", "scoreBoard");
 		  	
 	  	//score
 	  	distance = frameCount/100;
-	  	fill(0, 255, 0);
-	  	textSize(14);
-		text(distance, 100, 70, 10);
+	  	fill(98,204,214);
+	  	textSize(20);
+		text(distance, 130, 70, 10);
 
 		// lives
 		showLives();
@@ -81,7 +81,7 @@ function initializeStates(FSM) {
 	function gameOverStateInit() {
 		select('.container').show();
 		let textbox = select('#overlay');
-		textbox.html("GAME OVER!<br />SCORE: " + rick.score + "<br/><div id='morty-says'><h2>Oh, snap! Press Enter to play again.</h2><h4>If you logged in, click 'Submit Score' to donate to the Citadel of Ricks redevelopment fund.</h4></div><img id='morty' src='assets/morty.png'>");
+		textbox.html("<h1 class='flash'>GAME OVER!</h1><br/>SCORE: " + rick.score + "<br/><div id='morty-says'><h2>Oh, snap! Press Enter to play again.</h2><h4>If you logged in, click 'Submit Score' to donate to the Citadel of Ricks redevelopment fund.</h4></div><img id='morty' src='assets/morty.png'>");
 		textbox.style("padding-top", "100px");
 		textbox.show();
 		theme.stop();

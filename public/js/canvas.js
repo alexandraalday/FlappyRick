@@ -48,9 +48,8 @@ function setup() {
 	//difficulty slider section
 	textDiff = createP('Difficulty:').addClass('slider').style('display', 'inline');
 	textDiff.position(1000, 60)
-	textDiff.style('color', '#ffffff');
 	sliderDiff = createSlider(1, 10, 1, 1).style('display', 'inline'); // slider for difficulty controls
-	sliderDiff.position(1000, 80);
+	sliderDiff.position(1000, 90);
 	sliderDiff.style('max-width', '100px');
 	textDiff.hide();
 	sliderDiff.hide();
@@ -92,8 +91,8 @@ function showLives() {
 		FSM.next()
 	} else {
 	for (let i = 0; i < rick.lives; i++){
-    		fill((i<rick.lives)?(color(0,255,0)):(color(255,0,0)));
-    		rect(10+30*i,20,20,20);
+    		fill((i<rick.lives)?(color(98,204,214)):(color(98,204,214)));
+    		rect(30+30*i,20,20,20);
     	}
     }
 }
