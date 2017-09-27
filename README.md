@@ -1,6 +1,7 @@
 # PROJECT: FlappyRick
 
 **LIVE SITE:** https://flappyrick.herokuapp.com/
+**SERVER:** https://flappyrick-api.herokuapp.com/
 
 **SUMMARY:** 
 Rick and Morty take on flappy bird in this broswer based, canvas game. Created in a one week sprint. 
