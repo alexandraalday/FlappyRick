@@ -219,6 +219,11 @@ a {
     color: #fff;
 }
 
+.score-table {
+	max-height: 400px; 
+	overflow-y: scroll;
+}
+
 .btn-github {
 	color:#fff;
 	background-color:#444;
