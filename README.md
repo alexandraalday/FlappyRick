@@ -25,6 +25,7 @@ Rick and Morty take on flappy bird in this broswer based, canvas game. Created i
    - Browser based game, currently optimized for Google Chrome. 
 
 **PLANNED FEATURES:** 
+- Leaderboard!
 - Remove difficulty slider and convert to levels that increase in difficulty. 
 - Save scores to server automatically on GAME OVER. Remove need for user to manually save their score.
 - Allow for levels to be replayed instead of starting over entirely.
