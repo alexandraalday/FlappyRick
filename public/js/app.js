@@ -2,6 +2,7 @@ const app = angular.module('flappyrick', []);
 
 	app.controller('mainController', ['$http', function($http) { 
 		let controller = this;
+		this.message;
   		// server location
   		this.url = 'https://flappyrick-api.herokuapp.com';
   		// users
@@ -27,7 +28,7 @@ const app = angular.module('flappyrick', []);
 		      }}
 		    }).then(function(response) {
 		      console.log(response);
-		      controller.login(userReg);
+		      controller.message = "Success!";
 		    })
 		  }
 
@@ -67,7 +68,8 @@ const app = angular.module('flappyrick', []);
 		    }).then(function(response) {
 		      	console.log(response);
 		     	controller.login(userUp);
-
+		     	controller.message = "Success!";
+		     	controller.user = response.data.user;
     		}.bind(this));
 
 	  	}

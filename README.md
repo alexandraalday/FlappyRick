@@ -26,6 +26,6 @@ Rick and Morty take on flappy bird in this broswer based, canvas game. Created i
 **PLANNED FEATURES:** 
 - Remove difficulty slider and convert to levels that increase in difficulty. 
 - Save scores to server automatically on GAME OVER. Remove need for user to manually save their score.
-- Allow fopr levels to be replayed instead of starting over entirely.
+- Allow for levels to be replayed instead of starting over entirely.
 - Sound can be toggled on/off
 - Add scream mode, where users can move Rick by yelling and making other inhuman noises. 
