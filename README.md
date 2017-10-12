@@ -1,9 +1,9 @@
 ## FlappyRick
 https://flappyrick.herokuapp.com/
 
-Rick and Morty take on flappy bird in this browser based, canvas game. Created in a one week sprint, Flappy Rick is a single-page, two model CRUD app built with MVC file organization. User authentication is handled through JSON Web Tokens. 
+Rick and Morty take on flappy bird in this browser based, canvas game. Avoid the obstacles as long as you can! Your final distance is converted into donations to the Citadel of Rick redevelopment fund. 
 
-Currently, this game is only optimized for Chrome browsers. 
+Created in a one week sprint, Flappy Rick is a single-page, two model CRUD app built with MVC file organization. User authentication is handled through JSON Web Tokens. Currently, this game is only optimized for Chrome browsers. 
 
 **Technologies Used:** 
 * HTML
@@ -30,7 +30,7 @@ Currently, this game is only optimized for Chrome browsers.
 * Bootstrap
 * Font Awesome
 
-I wanted to practice using p5.js for canvas interactivity and was also able to experiment with two additional p5 libraries: p5.dom and p5.sound. These allowed me to manipuulate html elements outside of the canvas and add game sounds. Originally, I set up the game with p5.sound where the player had to shout at the computer mic to make Rick move up, but this made testing a little loud.  
+I wanted to practice using p5.js for canvas interactivity and was also able to experiment with two additional p5 libraries: p5.dom and p5.sound. These allowed me to manipulate html elements outside of the canvas and add game sounds. Originally, I set up the game with p5.sound where the player had to shout at the computer mic to make Rick move up, but this made testing a little loud.  
 
 
 Additionally, I did some research on game sequence so my game didn't immediately start when the page opened. I came across finite state machine design. This allows for different game states to be triggered and in which order. In this case, the triggers are the ENTER key and when a user has lost all their lives. This was my favorite part of this build, as this was completely uncharted territory and at times frustrating.  This application has three states: intro, gameplay, end. 
