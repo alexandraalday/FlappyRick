@@ -3,9 +3,7 @@ const app = angular.module('flappyrick', []);
 	app.controller('mainController', ['$http', function($http) { 
 		let controller = this;
 		this.message;
-  		// server location
   		this.url = 'https://flappyrick-api.herokuapp.com';
-  		// users
 		this.user = {};
 		this.userPass = {};
 		this.showRegister = false;
@@ -17,7 +15,6 @@ const app = angular.module('flappyrick', []);
   		this.highScore;
   		this.totalScore;
 
-		// create new account
 		this.register = function(userReg){
 		    $http({
 		      method: 'POST',
@@ -27,19 +24,16 @@ const app = angular.module('flappyrick', []);
 		        password: userReg.password
 		      }}
 		    }).then(function(response) {
-		      console.log(response);
 		      controller.message = "Success!";
 		    })
 		  }
 
-		// login 
 		this.login = function(userPass) {
 	    	$http({
 		    	method: 'POST',
 		    	url: this.url + '/users/login',
 		    	data: { user: { username: userPass.username, password: userPass.password }}
 		    }).then(function(response) {
-		      	console.log(response);
 		     	this.user = response.data.user;
 		     	localStorage.setItem('token', JSON.stringify(response.data.token));
 		     	this.showLogin = false;
@@ -49,14 +43,12 @@ const app = angular.module('flappyrick', []);
     		}.bind(this));
     	}
 
-	  	// logout
 		this.logout = function() {
 		  localStorage.clear('token');
 		  this.loggedin = false;
 		  location.reload();
 		}
 
-		// update 
 		this.update = function(userUp) {
 	    	$http({
 		    	method: 'PUT',
@@ -66,7 +58,6 @@ const app = angular.module('flappyrick', []);
 		    	url: this.url + '/users/' + this.user.id,
 		    	data: { user: { username: userUp.username, password: userUp.password }},
 		    }).then(function(response) {
-		      	console.log(response);
 		     	controller.login(userUp);
 		     	controller.message = "Success!";
 		     	controller.user = response.data.user;
@@ -74,7 +65,6 @@ const app = angular.module('flappyrick', []);
 
 	  	}
 
-	  	// delete
 		this.delete = function() {
 	    	$http({
 		    	method: 'DELETE',
@@ -83,7 +73,6 @@ const app = angular.module('flappyrick', []);
      			},
 		    	url: this.url + '/users/' + this.user.id
 		    }).then(function(response) {
-		      	console.log(response);
 		      	controller.logout();
     		}.bind(this));
 	  	}
@@ -122,14 +111,10 @@ const app = angular.module('flappyrick', []);
 		    }
 		}
 
-		// add score
 		this.addScore = function() {
 			let score = document.getElementById('overlay');
     		score.innerHTML = score.innerText || score.textContent;
 			let userDistance = parseFloat(score.innerHTML.split('SCORE: ')[1]).toFixed(2);
-			console.log("distance: " + userDistance);
-			console.log("difficulty: " + sliderDiff.value());
-			console.log("user_id: " + controller.user.id);
 			let userDifficulty = sliderDiff.value();
 	    	$http({
 		    	method: 'POST',
@@ -140,12 +125,10 @@ const app = angular.module('flappyrick', []);
 		    		user_id: controller.user.id
 		    	}}
 		    }).then(response=>{
-		      	console.log(response);
 		      	this.getScores(this.user);
     		}).catch(err=> console.log(err))
     	}
 
-    	// get scores, high score, and total score for current user
 		this.getScores = function(user) {
 		    $http({
 		      url: this.url + '/users/' + this.user.id,
@@ -160,12 +143,10 @@ const app = angular.module('flappyrick', []);
 		      	scores.push(parseFloat(controller.userScores[i].distance)).toFixed(2);
 		      }
 		      
-		      //total score
 		      controller.totalScore = scores.reduce(function(a, b) {
     			return a + b;
 			  });
 
-			  // high score
 		      controller.highScore =  scores.reduce(function(a, b) {
     			return Math.max(a, b);
 				});
