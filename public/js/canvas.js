@@ -31,7 +31,7 @@ function preload() {
 	p6 = loadImage('assets/p6.png');
 	uprock = loadImage('assets/rockUp.png');
 	downrock = loadImage('assets/rockDown.png');
-	theme = loadSound('assets/rick-morty-get-schwifty-trap.mp3');
+	theme = loadSound('assets/rick-morty-get-schwifty-trap.wav');
 	gameover = loadSound('assets/damnLook.wav'); 
 	rockhit1 = loadSound('assets/rockhit1.wav');
 	rockhit2 = loadSound('assets/rockhit2.wav');
