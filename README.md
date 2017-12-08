@@ -3,7 +3,7 @@ https://flappyrick.herokuapp.com/
 
 Rick and Morty take on flappy bird in this browser based, canvas game. Avoid the obstacles as long as you can! Your final distance is converted into donations to the Citadel of Rick redevelopment fund. 
 
-Created in a one week sprint, Flappy Rick is a single-page, two model CRUD app built with MVC file organization. User authentication is handled through JSON Web Tokens. Currently, this game is only optimized for Chrome browsers. 
+Created in a one week sprint, Flappy Rick is a single-page, two model CRUD app built with MVC file organization. User authentication is handled through JSON Web Tokens. 
 
 **Technologies Used:** 
 * HTML
@@ -64,8 +64,7 @@ Another user of this application is the registered user who logs in to maintain 
 * Registered users can delete their account
 
 
-### Features In Progress:
- - [ ]  Optimize for other browsers
+### Future Features:
  - [ ]  Create a leaderboard across all users
  - [ ]  Remove difficulty slider and convert to levels that increase in difficulty. 
  - [ ]  Save scores to server automatically on GAME OVER. Remove need for user to manually save their score.
